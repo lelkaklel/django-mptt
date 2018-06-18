@@ -1,3 +1,4 @@
+{% load i18n admin_static %}
 {% if result_hidden_fields %}
     <div class="hiddenfields">{# DIV for HTML validation #}
         {% for item in result_hidden_fields %}{{ item }}{% endfor %}
@@ -11,8 +12,9 @@
                 <tr>
                     {% for header in result_headers %}
                         <th scope="col" {{ header.class_attrib }}>
-                            {{ header.text|capfirst }}
-                        </th>{% endfor %}
+                            <div class="grp-text"><span>{{ header.text|capfirst }}</span></div>
+                        </th>
+                    {% endfor %}
                 </tr>
             </thead>
             <tbody>
